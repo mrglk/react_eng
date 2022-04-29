@@ -1,0 +1,29 @@
+@import "vars";
+@import "fonts";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  background-color: $bgColor;
+  font-family: $generalFont;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+a {
+  color: $textColor;
+  text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+p {
+  color: $textColor;
+}

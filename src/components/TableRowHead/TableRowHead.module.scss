@@ -1,0 +1,17 @@
+@import "../../styles/vars.scss";
+
+.TableRowHead {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 2fr 1fr 1fr;
+  font-size: 14px;
+}
+
+.TableHead {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  border: 2px solid $bgColor;
+  border-radius: 3px;
+  background: $accentColor;
+}

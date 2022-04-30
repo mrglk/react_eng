@@ -3,8 +3,8 @@ import Table from "../Table/Table";
 
 function WordsPage() {
   return (
-    <div class={styles.Container}>
-      <div class={styles.Inner}>
+    <div className={styles.Container}>
+      <div className={styles.Inner}>
         <Table></Table>
       </div>
     </div>

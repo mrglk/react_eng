@@ -1,6 +1,8 @@
 // import TableRow from "../TableRow/TableRow";
 import styles from "./Table.module.scss";
 import Words from "../../words.json";
+import Edit from "../../assets/img/edit.svg";
+import Delete from "../../assets/img/delete.svg";
 
 function Table() {
   return (
@@ -39,8 +41,12 @@ function TableRow(props) {
       <td className={styles.TableData}>{props.transcription}</td>
       <td className={styles.TableData}>{props.russian}</td>
       <td className={styles.TableData}>{props.tags}</td>
-      <td className={styles.TableData}>ред</td>
-      <td className={styles.TableData}>уд</td>
+      <td className={styles.TableData}>
+        <img alt="Edit" src={Edit}></img>
+      </td>
+      <td className={styles.TableData}>
+        <img alt="Delete" src={Delete}></img>
+      </td>
     </tr>
   );
 }

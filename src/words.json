@@ -5,7 +5,8 @@
     "transcription": "[ ˈkærət ]",
     "russian": "морковь",
     "tags": "овощи",
-    "tags_json": "[\"u043eu0432u043eu0449u0438\"]"
+    "tags_json": "[\"u043eu0432u043eu0449u0438\"]",
+    "isOpened": false
   },
   {
     "id": "11344",
@@ -13,7 +14,8 @@
     "transcription": "[ ˈbʌtəflaɪ ]",
     "russian": "бабочка",
     "tags": "насекомые",
-    "tags_json": "[\"u043du0430u0441u0435u043au043eu043cu044bu0435\"]"
+    "tags_json": "[\"u043du0430u0441u0435u043au043eu043cu044bu0435\"]",
+    "isOpened": false
   },
   {
     "id": "11346",
@@ -21,7 +23,8 @@
     "transcription": "[ stri:t ]",
     "russian": "улица",
     "tags": "овощи",
-    "tags_json": "[\"u043eu0432u043eu0449u0438\"]"
+    "tags_json": "[\"u043eu0432u043eu0449u0438\"]",
+    "isOpened": true
   },
   {
     "id": "11347",
@@ -29,7 +32,8 @@
     "transcription": "[ kɑ: ]",
     "russian": "автомобиль",
     "tags": "",
-    "tags_json": "[\"\"]"
+    "tags_json": "[\"\"]",
+    "isOpened": false
   },
   {
     "id": "11350",
@@ -37,7 +41,8 @@
     "transcription": "[ ɑ:m ]",
     "russian": "рука",
     "tags": "",
-    "tags_json": "[\"\"]"
+    "tags_json": "[\"\"]",
+    "isOpened": false
   },
   {
     "id": "11354",
@@ -45,7 +50,8 @@
     "transcription": "[  eər ]",
     "russian": "воздух",
     "tags": "",
-    "tags_json": "[\"\"]"
+    "tags_json": "[\"\"]",
+    "isOpened": false
   },
   {
     "id": "11355",
@@ -53,7 +59,8 @@
     "transcription": "[ fɒks ]",
     "russian": "лиса",
     "tags": "",
-    "tags_json": "[\"\"]"
+    "tags_json": "[\"\"]",
+    "isOpened": false
   },
   {
     "id": "11360",
@@ -61,7 +68,8 @@
     "transcription": "[ ˈræbɪt ]",
     "russian": "кролик",
     "tags": "",
-    "tags_json": "[\"\"]"
+    "tags_json": "[\"\"]",
+    "isOpened": false
   },
   {
     "id": "11369",
@@ -69,7 +77,8 @@
     "transcription": "[ aʊl ]",
     "russian": "сова",
     "tags": "птицы",
-    "tags_json": "[\"u043fu0442u0438u0446u044b\"]"
+    "tags_json": "[\"u043fu0442u0438u0446u044b\"]",
+    "isOpened": false
   },
   {
     "id": "11371",
@@ -77,7 +86,8 @@
     "transcription": "[ maʊs]",
     "russian": "мышь",
     "tags": "животные",
-    "tags_json": "[\"u0436u0438u0432u043eu0442u043du044bu0435\"]"
+    "tags_json": "[\"u0436u0438u0432u043eu0442u043du044bu0435\"]",
+    "isOpened": false
   },
   {
     "id": "11397",
@@ -85,7 +95,8 @@
     "transcription": "[ tiː ]",
     "russian": "чай",
     "tags": "напитки",
-    "tags_json": "[\"u043du0430u043fu0438u0442u043au0438\"]"
+    "tags_json": "[\"u043du0430u043fu0438u0442u043au0438\"]",
+    "isOpened": false
   },
   {
     "id": "11403",
@@ -93,7 +104,8 @@
     "transcription": "[ ɡuːs ]",
     "russian": "гусь",
     "tags": "птицы",
-    "tags_json": "[\"u043fu0442u0438u0446u044b\"]"
+    "tags_json": "[\"u043fu0442u0438u0446u044b\"]",
+    "isOpened": false
   },
   {
     "id": "11404",
@@ -101,7 +113,8 @@
     "transcription": "[ ˈflaʊər ]",
     "russian": "цветок",
     "tags": "растения",
-    "tags_json": "[\"u0440u0430u0441u0442u0435u043du0438u044f\"]"
+    "tags_json": "[\"u0440u0430u0441u0442u0435u043du0438u044f\"]",
+    "isOpened": false
   },
   {
     "id": "11421",
@@ -109,7 +122,8 @@
     "transcription": "[ be:d ]",
     "russian": "птица",
     "tags": "птиц",
-    "tags_json": "[\"u043fu0442u0438u0446\"]"
+    "tags_json": "[\"u043fu0442u0438u0446\"]",
+    "isOpened": false
   },
   {
     "id": "11423",
@@ -117,6 +131,7 @@
     "transcription": "[ kæt ]",
     "russian": "кот",
     "tags": "",
-    "tags_json": "[]"
+    "tags_json": "[]",
+    "isOpened": false
   }
 ]

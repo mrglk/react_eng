@@ -1,17 +1,38 @@
-// .Container {
-//   width: 80vw;
-// }
-
 @import "../../styles/vars.scss";
 
 .Table {
   width: 80vw;
   border-collapse: collapse;
-  // box-shadow: 0px 5px 10px -5px rgba(34, 60, 80, 0.2);
   border: 1px solid $bgColor;
 }
 
 .TableRow {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 2fr 1fr 1fr;
+  font-size: 14px;
+}
+
+.TableData {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  border: 2px solid $bgColor;
+  border-radius: 3px;
+  background: rgb(250, 250, 250);
+}
+
+.TableData_opened {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  border: 2px solid $bgColor;
+  border-radius: 3px;
+  background: rgb(246, 214, 209);
+}
+
+.TableRowHead {
   display: grid;
   grid-template-columns: 2fr 2fr 2fr 2fr 1fr 1fr;
   font-size: 14px;
@@ -27,14 +48,22 @@
   background: $accentColor;
 }
 
-.TableData {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 30px;
-  border: 2px solid $bgColor;
-  border-radius: 3px;
-  background: rgb(250, 250, 250);
+.TableInput {
+  text-align: center;
+  width: 85%;
+  height: 60%;
+  color: rgb(71, 71, 71);
+  border: 1px solid rgb(213, 213, 213);
+
+  &:focus {
+    border-color: rgb(105, 105, 105);
+    outline: none;
+  }
+
+  &:hover {
+    border-color: rgb(105, 105, 105);
+    outline: none;
+  }
 }
 
 @media screen and (max-width: $mobile) {

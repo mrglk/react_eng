@@ -22,8 +22,6 @@ function App() {
        russian="Морковь"
        checked={checked}
        onClick={handleClick}
-      //  tags={word.tags}
-      //  isOpened={word.isOpened}
        />
       <WordsPage></WordsPage>
       <Footer></Footer>

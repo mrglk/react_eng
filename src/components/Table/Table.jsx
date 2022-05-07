@@ -2,20 +2,29 @@ import styles from "./Table.module.scss";
 import TableRow from "../TableRow/TableRow";
 import TableRowHead from "../TableRowHead/TableRowHead";
 import Words from "../../words.json";
+import { useState } from "react";
 
 function Table() {
+  const [edit, setEdit] = useState(null);
+
+  const handleClick = () => {
+    setEdit(null);
+  };
+
   return (
     <table className={styles.Table}>
-      <TableRowHead />
+      <TableRowHead isEdit={edit} />
       <tbody>
-        {Words.map((word) => (
+        {Words.map((word, i) => (
           <TableRow
             key={word.id}
             english={word.english}
             transcription={word.transcription}
             russian={word.russian}
             tags={word.tags}
-            isOpened={word.isOpened}
+            isEditable={edit === i}
+            onEdit={() => setEdit(i)}
+            onCancel={handleClick}
           />
         ))}
       </tbody>

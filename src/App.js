@@ -2,29 +2,21 @@ import styles from "./App.module.scss";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import WordsPage from "./components/WordsPage/WordsPage";
-import Card from "./components/Card/Card";
-import { useState } from "react";
+import GamePage from "./components/GamePage/GamePage";
+// import Card from "./components/Card/Card";
+// import { useState } from "react";
+import Words from "./words.json";
 
 function App() {
-  const [checked, setCheked] = useState(false);
-
-  const handleClick = () => {
-    setCheked(!checked);
-  }
-
+  // console.log(Words)
+  // let word = JSON.parse(Words);
+  // console.log(word)
   return (
     <div className={styles.App}>
-      <Header></Header>
-      <Card
-       key="1"
-       english="Carrort"
-       transcription="[ ˈkærət ]"
-       russian="Морковь"
-       checked={checked}
-       onClick={handleClick}
-       />
-      <WordsPage></WordsPage>
-      <Footer></Footer>
+      <Header />
+      <GamePage words={Words}/>
+      <WordsPage />
+      <Footer />
     </div>
   );
 }

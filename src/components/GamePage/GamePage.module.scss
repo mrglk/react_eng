@@ -1,3 +1,5 @@
+@import "../../styles/vars.scss";
+
 .Wrapper {
     display: flex;
   flex-direction: column;
@@ -11,7 +13,15 @@
 }
 
 .Buttons {
-    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    padding: 20px 15px;
+    background-color: $accentColor;
+
+    &:hover {
+        background-color: #e0cce4;
+        transition: background-color 0.1s;
+    }
 }
 
 .CountWrapper {

@@ -6,6 +6,14 @@
   align-items: center;
 }
 
+ .Wrapper_error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+ }
+
+
 .Slider {
     display: flex;
     justify-content: center;

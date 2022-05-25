@@ -12,6 +12,7 @@ export default function GamePage(props) {
     }
 
     const [index, setIndex] = useState(0);
+    const [change, setChange] = useState(false);
 
     const checkIndex = (index) => {
         if (index < 0) {
@@ -24,8 +25,16 @@ export default function GamePage(props) {
 
     const handleButtons = (step = 1) => {
         const newIndex = checkIndex(index + step);
-        setIndex(newIndex);
-        setCheked(false);
+        setChange(true);
+
+        setTimeout(() => {
+            setIndex(newIndex);
+            setCheked(false);
+        }, 100)
+
+        setTimeout(() => {
+            setChange(false);
+        }, 130)
     }
 
     if (Words) {
@@ -39,7 +48,8 @@ export default function GamePage(props) {
                         transcription={Words[index].transcription}
                         russian={Words[index].russian}
                         checked={checked}
-                        onClick={handleClick} />
+                        onClick={handleClick}
+                        changed={change} />
                     <button className={styles.Buttons} onClick={() => handleButtons(1)}> &gt; </button>
                 </div>
                 <div className={styles.CountWrapper}><span className={styles.Count}>{index + 1}</span> / <span className={styles.Count}>{Words.length}</span></div>

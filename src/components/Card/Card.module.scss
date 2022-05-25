@@ -3,7 +3,14 @@
 .CardWrapper {
   display: flex;
   justify-content: center;
+  filter: blur(px);
+  transition: filter 0.1s ease;
 }
+
+.CardHidden {
+    filter: blur(30px);
+}
+
 .Card {
   display: flex;
   flex-direction: column;

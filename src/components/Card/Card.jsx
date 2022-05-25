@@ -1,8 +1,13 @@
 import styles from "./Card.module.scss";
+import * as cx from "classnames";
 
 export default function Card(props) {
+  const classCard = cx(styles.CardWrapper, {
+    [styles.CardHidden]: props.changed,
+  });
+
   return (
-    <div className={styles.CardWrapper}>
+    <div className={classCard}>
       <div className={styles.Card}>
         <div className={styles.Word}>
           <span className={styles.English}>{props.english}</span>

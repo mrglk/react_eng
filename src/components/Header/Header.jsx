@@ -1,24 +1,22 @@
 import styles from "./Header.module.scss";
-import WordsPage from "../WordsPage/WordsPage";
-import GamePage from "../GamePage/GamePage";
-import Words from "../../words.json";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link
-} from "react-router-dom";
+import { Link } from "react-router-dom";
+import Logo from "../../assets/img/logo.svg";
 
 function Header() {
   return (
     <div className={styles.Container}>
       <div className={styles.Inner}>
-        <p className={styles.Link}>
-          <Link to="/game">Game</Link>
-        </p>
-        <p className={styles.Link}>
-          <Link to="/">Words</Link>
-        </p>
+        <Link to="/">
+          <img className={styles.Logo} alt="Logo" src={Logo}></img>
+        </Link>
+        <div className={styles.LinksWrapper}>
+          <Link className={styles.Link} to="/">
+            Words
+          </Link>
+          <Link className={styles.Link} to="/game">
+            Game
+          </Link>
+        </div>
       </div>
     </div>
   );

@@ -1,39 +1,39 @@
 @import "../../styles/vars.scss";
 
 .Wrapper {
-    display: flex;
+  display: flex;
   flex-direction: column;
+  align-items: center;
+  margin: 50px;
+}
+
+.Wrapper_error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.Slider {
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
- .Wrapper_error {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 50px;
- }
-
-
-.Slider {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .Buttons {
-    border: none;
-    border-radius: 8px;
-    padding: 20px 15px;
-    background-color: $accentColor;
+  border: none;
+  border-radius: 8px;
+  padding: 20px 15px;
+  background-color: $accentColor;
 
-    &:hover {
-        background-color: #e0cce4;
-        transition: background-color 0.1s;
-    }
+  &:hover {
+    background-color: #e0cce4;
+    transition: background-color 0.1s;
+  }
 }
 
 .CountWrapper {
-    display: grid;
-    grid-template-columns: 2fr 1fr 2fr;
-    justify-items: center;
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr;
+  justify-items: center;
 }

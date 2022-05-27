@@ -9,18 +9,25 @@
 }
 
 .Inner {
+  width: 80vw;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 80px;
-  width: 50vw;
-  font-weight: bold;
 }
 
+.LinksWrapper {
+  display: flex;
+  gap: 40px;
+}
+
+.Logo {
+  width: 35px;
+}
 .Link {
   padding: 10px 30px;
   border: 1px solid black;
   border-radius: 6px;
+  font-weight: bold;
 
   &:hover {
     background-color: $accentColor;

@@ -3,21 +3,26 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import WordsPage from "./components/WordsPage/WordsPage";
 import GamePage from "./components/GamePage/GamePage";
-// import Card from "./components/Card/Card";
-// import { useState } from "react";
 import Words from "./words.json";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
 
 function App() {
-  // console.log(Words)
-  // let word = JSON.parse(Words);
-  // console.log(word)
   return (
-    <div className={styles.App}>
-      <Header />
-      <GamePage words={Words}/>
-      <WordsPage />
-      <Footer />
-    </div>
+      <Router>
+        <div className={styles.App}>
+          <Header />
+          <Routes>
+          <Route path="/" element={<WordsPage />} />
+          <Route path="/game" element={<GamePage words={Words} />} />
+        </Routes>
+          <Footer />
+        </div>
+      </Router>
   );
 }
 

@@ -4,7 +4,7 @@ import TableRowHead from "../TableRowHead/TableRowHead";
 import Words from "../../words.json";
 import { useState } from "react";
 
-function Table() {
+export default function Table() {
   const [edit, setEdit] = useState(null);
 
   const handleClick = () => {
@@ -31,5 +31,3 @@ function Table() {
     </table>
   );
 }
-
-export default Table;

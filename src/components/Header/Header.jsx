@@ -1,6 +1,7 @@
 import styles from "./Header.module.scss";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/img/logo.svg";
+import CustomLink from "../CustomLink/CustomLink";
 
 function Header() {
   return (
@@ -10,12 +11,12 @@ function Header() {
           <img className={styles.Logo} alt="Logo" src={Logo}></img>
         </Link>
         <div className={styles.LinksWrapper}>
-          <Link className={styles.Link} to="/">
+          <CustomLink className={styles.Link} to="/">
             Words
-          </Link>
-          <Link className={styles.Link} to="/game">
+          </CustomLink>
+          <CustomLink className={styles.Link} to="/game">
             Game
-          </Link>
+          </CustomLink>
         </div>
       </div>
     </div>

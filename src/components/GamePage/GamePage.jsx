@@ -1,29 +1,34 @@
+import React from "react";
 import styles from "./GamePage.module.scss";
 import Card from "../Card/Card";
 import { useState, useEffect } from "react";
-import { useLocation, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 export default function GamePage(props) {
-  const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
   const [index, setIndex] = useState(0);
   const [change, setChange] = useState(false);
-  const [checked, setCheked] = useState(false);
+  const [checked, setChecked] = useState(false);
+  const [learned, setLearned] = useState(0);
 
   const Words = props.words;
 
   const handleClick = () => {
-    setCheked(!checked);
+    setChecked(!checked);
+    setLearned((learned) => learned + 1);
   };
 
-  const checkIndex = (index) => {
-    if (index < 0) {
-      return (index = Words.length - 1);
-    } else if (index >= Words.length) {
-      return (index = 0);
-    }
-    return index;
-  };
+  const checkIndex = React.useCallback(
+    (index) => {
+      if (index < 0) {
+        return (index = Words.length - 1);
+      } else if (index >= Words.length) {
+        return (index = 0);
+      }
+      return index;
+    },
+    [Words]
+  );
 
   const handleButtons = (step = 1) => {
     const newIndex = checkIndex(index + step);
@@ -31,7 +36,7 @@ export default function GamePage(props) {
 
     setTimeout(() => {
       setIndex(newIndex);
-      setCheked(false);
+      setChecked(false);
     }, 100);
 
     setTimeout(() => {
@@ -45,7 +50,13 @@ export default function GamePage(props) {
     const index = searchParams.get("index");
     const newIndex = checkIndex(Number(index));
     setIndex(newIndex);
-  }, [location]);
+  }, [checkIndex, searchParams]);
+
+  // useEffect(() => {
+  //   const index = searchParams.get("index");
+  //   const newIndex = checkIndex(Number(index));
+  //   setIndex(newIndex);
+  // }, [checkIndex, searchParams]);
 
   if (Words) {
     return (
@@ -69,9 +80,12 @@ export default function GamePage(props) {
             &gt;{" "}
           </button>
         </div>
-        <div className={styles.CountWrapper}>
-          <span className={styles.Count}>{index + 1}</span> /{" "}
-          <span className={styles.Count}>{Words.length}</span>
+        <div className={styles.CounttContainer}>
+          <div className={styles.CountWrapper}>
+            <span className={styles.Count}>{index + 1}</span> /{" "}
+            <span className={styles.Count}>{Words.length}</span>
+          </div>
+          <span className={styles.Count}>Learned: {learned}</span>
         </div>
       </div>
     );

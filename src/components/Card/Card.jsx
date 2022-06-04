@@ -1,10 +1,22 @@
 import styles from "./Card.module.scss";
 import * as cx from "classnames";
+import { useRef, useEffect, useState } from "react";
 
-export default function Card(props) {
+function Card(props) {
   const classCard = cx(styles.CardWrapper, {
     [styles.CardHidden]: props.changed,
   });
+  const ref = useRef();
+  const [checked, setChecked] = useState(false);
+
+  useEffect(() => {
+    ref.current && ref.current.focus();
+  }, []);
+
+  const handleClick = () => {
+    setChecked(!checked);
+    props.showTranslation();
+  };
 
   return (
     <div className={classCard}>
@@ -14,8 +26,8 @@ export default function Card(props) {
           <span className={styles.Transcription}>{props.transcription}</span>
         </div>
         <div className={styles.ButtonWrapper}>
-          {!props.checked ? (
-            <button className={styles.Button} onClick={props.onClick}>
+          {!checked ? (
+            <button className={styles.Button} onClick={handleClick} ref={ref}>
               Check
             </button>
           ) : (
@@ -28,3 +40,5 @@ export default function Card(props) {
     </div>
   );
 }
+
+export default Card;

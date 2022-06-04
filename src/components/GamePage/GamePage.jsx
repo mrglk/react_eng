@@ -1,26 +1,22 @@
-import React from "react";
 import styles from "./GamePage.module.scss";
 import Card from "../Card/Card";
-import { useState, useEffect } from "react";
+import { useCallback, useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 
 export default function GamePage(props) {
   const [searchParams, setSearchParams] = useSearchParams();
   const [index, setIndex] = useState(0);
   const [change, setChange] = useState(false);
-  const [checked, setChecked] = useState(false);
   const [learnedWords, setLearnedWords] = useState([]);
   const Words = props.words;
 
   const handleClick = (id) => {
-    setChecked(!checked);
-
     if (learnedWords.length === 0 || !learnedWords.includes(Number(id))) {
       setLearnedWords([...learnedWords, Number(id)]);
     }
   };
 
-  const checkIndex = React.useCallback(
+  const checkIndex = useCallback(
     (index) => {
       if (index < 0) {
         return (index = Words.length - 1);
@@ -38,7 +34,6 @@ export default function GamePage(props) {
 
     setTimeout(() => {
       setIndex(newIndex);
-      setChecked(false);
     }, 100);
 
     setTimeout(() => {
@@ -67,8 +62,7 @@ export default function GamePage(props) {
             english={Words[index].english}
             transcription={Words[index].transcription}
             russian={Words[index].russian}
-            checked={checked}
-            onClick={() => handleClick(Words[index].id)}
+            showTranslation={() => handleClick(Words[index].id)}
             changed={change}
           />
           <button className={styles.Buttons} onClick={() => handleButtons(1)}>

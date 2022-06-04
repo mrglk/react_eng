@@ -9,13 +9,15 @@ export default function GamePage(props) {
   const [index, setIndex] = useState(0);
   const [change, setChange] = useState(false);
   const [checked, setChecked] = useState(false);
-  const [learned, setLearned] = useState(0);
-
+  const [learnedWords, setLearnedWords] = useState([]);
   const Words = props.words;
 
-  const handleClick = () => {
+  const handleClick = (id) => {
     setChecked(!checked);
-    setLearned((learned) => learned + 1);
+
+    if (learnedWords.length === 0 || !learnedWords.includes(Number(id))) {
+      setLearnedWords([...learnedWords, Number(id)]);
+    }
   };
 
   const checkIndex = React.useCallback(
@@ -52,12 +54,6 @@ export default function GamePage(props) {
     setIndex(newIndex);
   }, [checkIndex, searchParams]);
 
-  // useEffect(() => {
-  //   const index = searchParams.get("index");
-  //   const newIndex = checkIndex(Number(index));
-  //   setIndex(newIndex);
-  // }, [checkIndex, searchParams]);
-
   if (Words) {
     return (
       <div className={styles.Wrapper}>
@@ -72,7 +68,7 @@ export default function GamePage(props) {
             transcription={Words[index].transcription}
             russian={Words[index].russian}
             checked={checked}
-            onClick={handleClick}
+            onClick={() => handleClick(Words[index].id)}
             changed={change}
           />
           <button className={styles.Buttons} onClick={() => handleButtons(1)}>
@@ -80,12 +76,13 @@ export default function GamePage(props) {
             &gt;{" "}
           </button>
         </div>
-        <div className={styles.CounttContainer}>
-          <div className={styles.CountWrapper}>
-            <span className={styles.Count}>{index + 1}</span> /{" "}
-            <span className={styles.Count}>{Words.length}</span>
-          </div>
-          <span className={styles.Count}>Learned: {learned}</span>
+
+        <div className={styles.CountWrapper}>
+          <span>{index + 1}</span> / <span>{Words.length}</span>
+        </div>
+        <div className={styles.LearnedWrapper}>
+          <span>Learned: </span>
+          <span>{learnedWords.length}</span>
         </div>
       </div>
     );

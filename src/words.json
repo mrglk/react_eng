@@ -31,7 +31,7 @@
     "english": "car",
     "transcription": "[ kɑ: ]",
     "russian": "автомобиль",
-    "tags": "",
+    "tags": "транспорт",
     "tags_json": "[\"\"]",
     "isOpened": false
   },
@@ -40,16 +40,7 @@
     "english": "arm",
     "transcription": "[ ɑ:m ]",
     "russian": "рука",
-    "tags": "",
-    "tags_json": "[\"\"]",
-    "isOpened": false
-  },
-  {
-    "id": "11354",
-    "english": "air",
-    "transcription": "[  eər ]",
-    "russian": "воздух",
-    "tags": "",
+    "tags": "тело",
     "tags_json": "[\"\"]",
     "isOpened": false
   },
@@ -58,7 +49,7 @@
     "english": "fox",
     "transcription": "[ fɒks ]",
     "russian": "лиса",
-    "tags": "",
+    "tags": "животные",
     "tags_json": "[\"\"]",
     "isOpened": false
   },
@@ -67,7 +58,7 @@
     "english": "rabbit",
     "transcription": "[ ˈræbɪt ]",
     "russian": "кролик",
-    "tags": "",
+    "tags": "животные",
     "tags_json": "[\"\"]",
     "isOpened": false
   },
@@ -121,7 +112,7 @@
     "english": "bird",
     "transcription": "[ be:d ]",
     "russian": "птица",
-    "tags": "птиц",
+    "tags": "птицы",
     "tags_json": "[\"u043fu0442u0438u0446\"]",
     "isOpened": false
   },
@@ -130,7 +121,7 @@
     "english": "cat",
     "transcription": "[ kæt ]",
     "russian": "кот",
-    "tags": "",
+    "tags": "животные",
     "tags_json": "[]",
     "isOpened": false
   }

@@ -6,30 +6,40 @@ import Tick from "../../assets/img/tick.svg";
 import Cross from "../../assets/img/cross.svg";
 import * as cx from "classnames";
 import { useState } from "react";
+import TableInput from "../TableInput/TableInput";
 
-function TableRow(props) {
-  const isEditable = props.isEditable;
+function TableRow({
+  english,
+  transcription,
+  russian,
+  tags,
+  isEditable,
+  onSave,
+  onCancel,
+  onEdit,
+}) {
   const classTableData = cx(styles.TableData, {
     [styles.TableData_opened]: isEditable,
   });
 
-  const [state, setState] = useState(props);
+  const [state, setState] = useState({ english, transcription, russian, tags });
 
   const handleChange = (event, type) => {
+    let value = event.target.value.trimStart().replace(/ +/g, " ");
     setState({
       ...state,
-      [type]: event.target.value,
+      [type]: value,
     });
   };
 
   if (!isEditable) {
     return (
       <tr className={styles.TableRow}>
-        <td className={classTableData}>{props.english}</td>
-        <td className={classTableData}>{props.transcription}</td>
-        <td className={classTableData}>{props.russian}</td>
-        <td className={classTableData}>{props.tags}</td>
-        <td className={classTableData} onClick={props.onEdit}>
+        <td className={classTableData}>{english}</td>
+        <td className={classTableData}>{transcription}</td>
+        <td className={classTableData}>{russian}</td>
+        <td className={classTableData}>{tags}</td>
+        <td className={classTableData} onClick={onEdit}>
           <TableButton alt="Edit" img={Edit} />
         </td>
         <td className={classTableData}>
@@ -41,37 +51,33 @@ function TableRow(props) {
     return (
       <tr className={styles.TableRow}>
         <td className={classTableData}>
-          <input
-            className={styles.TableInput}
-            type="text"
+          <TableInput
             value={state.english}
-            onChange={(e) => handleChange(e, "english")}></input>
+            onChange={(e) => handleChange(e, "english")}
+          />
         </td>
         <td className={classTableData}>
-          <input
-            className={styles.TableInput}
-            type="text"
+          <TableInput
             value={state.transcription}
-            onChange={(e) => handleChange(e, "transcription")}></input>
+            onChange={(e) => handleChange(e, "transcription")}
+          />
         </td>
         <td className={classTableData}>
-          <input
-            className={styles.TableInput}
-            type="text"
+          <TableInput
             value={state.russian}
-            onChange={(e) => handleChange(e, "russian")}></input>
+            onChange={(e) => handleChange(e, "russian")}
+          />
         </td>
         <td className={classTableData}>
-          <input
-            className={styles.TableInput}
-            type="text"
+          <TableInput
             value={state.tags}
-            onChange={(e) => handleChange(e, "tags")}></input>
+            onChange={(e) => handleChange(e, "tags")}
+          />
         </td>
-        <td className={classTableData}>
+        <td className={classTableData} onClick={() => onSave(state)}>
           <TableButton alt="Save" img={Tick}></TableButton>
         </td>
-        <td className={classTableData} onClick={props.onCancel}>
+        <td className={classTableData} onClick={onCancel}>
           <TableButton alt="Cross" img={Cross}></TableButton>
         </td>
       </tr>

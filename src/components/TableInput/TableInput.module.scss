@@ -1,0 +1,31 @@
+@import "../../styles/vars.scss";
+
+.TableInput {
+  text-align: center;
+  width: 85%;
+  height: 60%;
+  color: rgb(71, 71, 71);
+  border: 1px solid rgb(213, 213, 213);
+
+  &:focus {
+    border-color: rgb(105, 105, 105);
+    outline: none;
+  }
+
+  &:hover {
+    border-color: rgb(105, 105, 105);
+    outline: none;
+  }
+}
+
+.TableInput_error {
+  border: 1px solid rgb(255, 0, 0);
+
+  &:focus {
+    border: 1px solid rgb(196, 14, 14);
+  }
+
+  &:hover {
+    border: 1px solid rgb(196, 14, 14);
+  }
+}

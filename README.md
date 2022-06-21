@@ -9,7 +9,9 @@
 
 ### Запуск проекта
 
-```git clone https://github.com/mrglk/react_eng.git
+
+```
+git clone https://github.com/mrglk/react_eng.git
 cd react_eng
 npm install
 npm start

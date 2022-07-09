@@ -5,7 +5,9 @@
 
 .Inner {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   width: 95%;
   margin: auto;
 }

@@ -1,11 +1,13 @@
 import styles from "./WordsPage.module.scss";
 import Table from "../Table/Table";
+import WordAdd from "../WordAdd/WordAdd";
 
 function WordsPage() {
   return (
     <div className={styles.Container}>
       <div className={styles.Inner}>
-        <Table></Table>
+        <WordAdd />
+        <Table />
       </div>
     </div>
   );

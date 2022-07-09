@@ -5,6 +5,7 @@ import WordsPage from "./components/WordsPage/WordsPage";
 import GamePage from "./components/GamePage/GamePage";
 import NoMatch from "./components/NoMacth/NoMatch";
 import Words from "./words.json";
+import { WordsContextProvider } from "./contexts/WordsContext";
 import {
   BrowserRouter as Router,
   Routes,
@@ -13,7 +14,8 @@ import {
 
 function App() {
   return (
-      <Router>
+    <WordsContextProvider>
+       <Router>
         <div className={styles.App}>
           <Header />
           <Routes>
@@ -28,6 +30,7 @@ function App() {
           <Footer />
         </div>
       </Router>
+    </WordsContextProvider>
   );
 }
 

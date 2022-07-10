@@ -42,33 +42,42 @@ export default function Table() {
   };
 
   return (
-    <>
-      {loading ? (
-        <div>Загрузка...</div>
-      ) : (
-        <table className={styles.Table}>
-          <TableRowHead isEdit={edit} />
-          <tbody>
-            {words.map((word, i) => (
-              <TableRow
-                key={word.id}
-                id={word.id}
-                english={word.english}
-                transcription={word.transcription}
-                russian={word.russian}
-                tags={word.tags}
-                isEditable={edit === i}
-                onEdit={() => setEdit(i)}
-                onCancel={handleCancel}
-                onSave={handleSave}
-                onDelete={handleDelete}
-                validate={Validate}
-                isError={error}
-              />
-            ))}
-          </tbody>
-        </table>
-      )}
-    </>
+    <table className={styles.Table}>
+      <TableRowHead isEdit={edit} />
+      <tbody className={styles.Body}>
+        {words.map((word, i) => (
+          <TableRow
+            key={word.id}
+            id={word.id}
+            english={word.english}
+            transcription={word.transcription}
+            russian={word.russian}
+            tags={word.tags}
+            isEditable={edit === i}
+            onEdit={() => setEdit(i)}
+            onCancel={handleCancel}
+            onSave={handleSave}
+            onDelete={handleDelete}
+            validate={Validate}
+            isError={error}
+          />
+        ))}
+        <tr>
+          {loading && (
+            <td className={styles.ErrorData} rowSpan={5}>
+              <svg className={styles.Spinner} viewBox="0 0 50 50">
+                <circle
+                  className={styles.Path}
+                  cx="25"
+                  cy="25"
+                  r="20"
+                  fill="none"
+                  strokeWidth="5"></circle>
+              </svg>
+            </td>
+          )}
+        </tr>
+      </tbody>
+    </table>
   );
 }

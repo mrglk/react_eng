@@ -11,8 +11,8 @@ function WordsContextProvider(props) {
   }, []);
 
   function getWords() {
-    // setLoading(true);
-    fetch("/api/words")
+    setLoading(true);
+    fetch("http://itgirlschool.justmakeit.ru/api/words")
       .then((response) => {
         if (!response.ok) {
           throw new Error(`Сервер недоступен!`);
@@ -29,7 +29,7 @@ function WordsContextProvider(props) {
   }
 
   function editWords(word) {
-    fetch(`/api/words/${word.id}/update`, {
+    fetch(`http://itgirlschool.justmakeit.ru/api/words/${word.id}/update`, {
       method: "POST",
       body: JSON.stringify(word),
     })
@@ -41,7 +41,7 @@ function WordsContextProvider(props) {
   }
 
   function deleteWords(id) {
-    fetch(`/api/words/${id}/delete`, {
+    fetch(`http://itgirlschool.justmakeit.ru/api/words/${id}/delete`, {
       method: "POST",
     })
       .then(() => {
@@ -52,7 +52,7 @@ function WordsContextProvider(props) {
   }
 
   function addWord(word) {
-    fetch(`/api/words/add`, {
+    fetch(`http://itgirlschool.justmakeit.ru/api/words/add`, {
       method: "POST",
       body: JSON.stringify(word),
     })

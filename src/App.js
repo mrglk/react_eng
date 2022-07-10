@@ -4,7 +4,6 @@ import Footer from "./components/Footer/Footer";
 import WordsPage from "./components/WordsPage/WordsPage";
 import GamePage from "./components/GamePage/GamePage";
 import NoMatch from "./components/NoMacth/NoMatch";
-import Words from "./words.json";
 import { WordsContextProvider } from "./contexts/WordsContext";
 import {
   BrowserRouter as Router,
@@ -20,10 +19,7 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<WordsPage />} />
-            <Route path="/game" element={
-              <GamePage
-              words={Words}
-              />} />
+            <Route path="/game" element={<GamePage/>} />
             <Route path="*" element={<NoMatch />} />
 
           </Routes>

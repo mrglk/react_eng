@@ -1,14 +1,15 @@
 import styles from "./GamePage.module.scss";
 import Card from "../Card/Card";
-import { useCallback, useState, useEffect } from "react";
+import { useCallback, useState, useEffect, useContext } from "react";
 import { useSearchParams } from "react-router-dom";
+import { WordsContext } from "../../contexts/WordsContext";
 
 export default function GamePage(props) {
+  const { words } = useContext(WordsContext);
   const [searchParams, setSearchParams] = useSearchParams();
   const [index, setIndex] = useState(0);
   const [change, setChange] = useState(false);
   const [learnedWords, setLearnedWords] = useState([]);
-  const Words = props.words;
 
   const handleClick = (id) => {
     if (learnedWords.length === 0 || !learnedWords.includes(Number(id))) {
@@ -19,13 +20,13 @@ export default function GamePage(props) {
   const checkIndex = useCallback(
     (index) => {
       if (index < 0) {
-        return (index = Words.length - 1);
-      } else if (index >= Words.length) {
+        return (index = words.length - 1);
+      } else if (index >= words.length) {
         return (index = 0);
       }
       return index;
     },
-    [Words]
+    [words]
   );
 
   const handleButtons = (step = 1) => {
@@ -49,7 +50,7 @@ export default function GamePage(props) {
     setIndex(newIndex);
   }, [checkIndex, searchParams]);
 
-  if (Words) {
+  if (words.length) {
     return (
       <div className={styles.Wrapper}>
         <div className={styles.Slider}>
@@ -58,11 +59,11 @@ export default function GamePage(props) {
             <span>&lt; </span>
           </button>
           <Card
-            key={Words[index].id}
-            english={Words[index].english}
-            transcription={Words[index].transcription}
-            russian={Words[index].russian}
-            showTranslation={() => handleClick(Words[index].id)}
+            key={words[index].id}
+            english={words[index].english}
+            transcription={words[index].transcription}
+            russian={words[index].russian}
+            showTranslation={() => handleClick(words[index].id)}
             changed={change}
           />
           <button className={styles.Buttons} onClick={() => handleButtons(1)}>
@@ -72,7 +73,7 @@ export default function GamePage(props) {
         </div>
 
         <div className={styles.CountWrapper}>
-          <span>{index + 1}</span> / <span>{Words.length}</span>
+          <span>{index + 1}</span> / <span>{words.length}</span>
         </div>
         <div className={styles.LearnedWrapper}>
           <span>Learned: </span>

@@ -4,7 +4,7 @@ const WordsContext = React.createContext();
 function WordsContextProvider(props) {
   const [words, setWords] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() => {
     getWords();
@@ -22,7 +22,7 @@ function WordsContextProvider(props) {
       .then((response) => {
         setWords(response);
       })
-      .catch((errors) => setError(errors))
+      .catch((errors) => setErrorMessage(errors.message))
       .finally(() => {
         setLoading(false);
       });
@@ -36,7 +36,7 @@ function WordsContextProvider(props) {
       .then(() => {
         getWords();
       })
-      .catch((errors) => setError(errors))
+      .catch((errors) => setErrorMessage(errors.message))
       .finally(() => {});
   }
 
@@ -47,7 +47,7 @@ function WordsContextProvider(props) {
       .then(() => {
         getWords();
       })
-      .catch((errors) => setError(errors))
+      .catch((errors) => setErrorMessage(errors.message))
       .finally(() => {});
   }
 
@@ -59,13 +59,29 @@ function WordsContextProvider(props) {
       .then(() => {
         getWords();
       })
-      .catch((errors) => setError(errors))
+      .catch((errors) => setErrorMessage(errors.message))
       .finally(() => {});
   }
 
+  function addError(message) {
+    setErrorMessage(message);
+  }
+
+  setTimeout(function () {
+    setErrorMessage(null);
+  }, 7000);
+
   return (
     <WordsContext.Provider
-      value={{ words, loading, error, editWords, deleteWords, addWord }}>
+      value={{
+        words,
+        loading,
+        errorMessage,
+        addError,
+        editWords,
+        deleteWords,
+        addWord,
+      }}>
       {props.children}
     </WordsContext.Provider>
   );

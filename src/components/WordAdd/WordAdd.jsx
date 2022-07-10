@@ -1,5 +1,4 @@
 import styles from "./WordAdd.module.scss";
-// import * as cx from "classnames";
 import TableInput from "../TableInput/TableInput";
 import { useState, useContext } from "react";
 import { WordsContext } from "../../contexts/WordsContext";
@@ -31,12 +30,13 @@ export default function WordAdd() {
       ...state,
       [type]: value,
     });
-    isValid && setDisabledButton(false);
+    isValid ? setDisabledButton(false) : setDisabledButton(true);
   };
 
   const handleAdd = (word) => {
     addWord(state);
     setState(initialState);
+    setDisabledButton(true);
   };
 
   return (

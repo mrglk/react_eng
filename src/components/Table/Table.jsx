@@ -1,12 +1,12 @@
 import styles from "./Table.module.scss";
 import TableRow from "../TableRow/TableRow";
 import TableRowHead from "../TableRowHead/TableRowHead";
-// import Words from "../../words.json";
 import { useState, useContext } from "react";
 import { WordsContext } from "../../contexts/WordsContext";
 
 export default function Table() {
-  const { words, loading, editWords, deleteWords } = useContext(WordsContext);
+  const { words, loading, addError, editWords, deleteWords } =
+    useContext(WordsContext);
   const [edit, setEdit] = useState(null);
   const [error, setError] = useState(false);
 
@@ -26,7 +26,7 @@ export default function Table() {
       isChanged && editWords(row);
     } else {
       setError(true);
-      alert("Заполните все поля");
+      addError("Заполните все поля");
     }
   };
 

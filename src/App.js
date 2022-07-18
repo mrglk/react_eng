@@ -4,16 +4,15 @@ import Footer from "./components/Footer/Footer";
 import WordsPage from "./components/WordsPage/WordsPage";
 import GamePage from "./components/GamePage/GamePage";
 import NoMatch from "./components/NoMacth/NoMatch";
-import { WordsContextProvider } from "./contexts/WordsContext";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
 } from "react-router-dom";
+// import { WordsContextProvider } from "./contexts/WordsContext";
 
 function App() {
   return (
-    <WordsContextProvider>
        <Router>
         <div className={styles.App}>
           <Header />
@@ -26,7 +25,6 @@ function App() {
           <Footer />
         </div>
       </Router>
-    </WordsContextProvider>
   );
 }
 

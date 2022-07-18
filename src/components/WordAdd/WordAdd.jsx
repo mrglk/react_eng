@@ -1,10 +1,10 @@
 import styles from "./WordAdd.module.scss";
 import TableInput from "../TableInput/TableInput";
-import { useState, useContext } from "react";
-import { WordsContext } from "../../contexts/WordsContext";
+import { useState } from "react";
+import { inject, observer } from "mobx-react";
 
-export default function WordAdd() {
-  const { addWord } = useContext(WordsContext);
+function WordAdd({ wordsStore }) {
+  const addWord = wordsStore.addWord;
   const [disabledButton, setDisabledButton] = useState(true);
 
   const initialState = {
@@ -42,37 +42,40 @@ export default function WordAdd() {
   return (
     <table className={styles.Container}>
       <tbody>
-        <tr>
-          <td>
+        <tr className={styles.TableRow}>
+          <td className={styles.TableData}>
             <TableInput
               value={state.english}
               onChange={(e) => handleChange(e, "english")}
               placeholder="english"
             />
           </td>
-          <td>
+          <td className={styles.TableData}>
             <TableInput
               value={state.transcription}
               onChange={(e) => handleChange(e, "transcription")}
               placeholder="transcription"
             />
           </td>
-          <td>
+          <td className={styles.TableData}>
             <TableInput
               value={state.russian}
               onChange={(e) => handleChange(e, "russian")}
               placeholder="russian"
             />
           </td>
-          <td>
+          <td className={styles.TableData}>
             <TableInput
               value={state.tags}
               onChange={(e) => handleChange(e, "tags")}
               placeholder="tags"
             />
           </td>
-          <td>
-            <button disabled={disabledButton} onClick={() => handleAdd(state)}>
+          <td className={styles.TableData}>
+            <button
+              disabled={disabledButton}
+              className={styles.Button}
+              onClick={() => handleAdd(state)}>
               Add word
             </button>
           </td>
@@ -81,3 +84,5 @@ export default function WordAdd() {
     </table>
   );
 }
+
+export default inject(["wordsStore"])(observer(WordAdd));

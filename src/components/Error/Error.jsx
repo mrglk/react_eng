@@ -1,10 +1,11 @@
 import styles from "./Error.module.scss";
-import { WordsContext } from "../../contexts/WordsContext";
-import { useState, useContext, useEffect } from "react";
+// import { WordsContext } from "../../contexts/WordsContext";
+import { useState, useEffect } from "react";
 import * as cx from "classnames";
+import { inject, observer } from "mobx-react";
 
-export default function Error(props) {
-  const { errorMessage } = useContext(WordsContext);
+function Error({ wordsStore }) {
+  const errorMessage = wordsStore.errorMessage;
   const [shown, setShown] = useState(true);
   const classError = cx(styles.Error, {
     [styles.ErrorShow]: errorMessage && shown,
@@ -26,3 +27,5 @@ export default function Error(props) {
     </div>
   );
 }
+
+export default inject(["wordsStore"])(observer(Error));

@@ -1,11 +1,12 @@
 import styles from "./GamePage.module.scss";
 import Card from "../Card/Card";
-import { useCallback, useState, useEffect, useContext } from "react";
+import { useCallback, useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import { WordsContext } from "../../contexts/WordsContext";
+// import { WordsContext } from "../../contexts/WordsContext";
+import { inject, observer } from "mobx-react";
 
-export default function GamePage(props) {
-  const { words } = useContext(WordsContext);
+function GamePage({ wordsStore }) {
+  const words = wordsStore.words;
   const [searchParams, setSearchParams] = useSearchParams();
   const [index, setIndex] = useState(0);
   const [change, setChange] = useState(false);
@@ -43,6 +44,10 @@ export default function GamePage(props) {
 
     setSearchParams({ index: newIndex });
   };
+
+  useEffect(() => {
+    wordsStore.getWords();
+  }, []);
 
   useEffect(() => {
     const index = searchParams.get("index");
@@ -85,3 +90,5 @@ export default function GamePage(props) {
 
   return <div className={styles.Wrapper_error}>Нет данных :(</div>;
 }
+
+export default inject(["wordsStore"])(observer(GamePage));

@@ -1,14 +1,17 @@
 import styles from "./Table.module.scss";
 import TableRow from "../TableRow/TableRow";
 import TableRowHead from "../TableRowHead/TableRowHead";
-import { useState, useContext } from "react";
-import { WordsContext } from "../../contexts/WordsContext";
+import { useState, useEffect } from "react";
+import { inject, observer } from "mobx-react";
 
-export default function Table() {
-  const { words, loading, addError, editWords, deleteWords } =
-    useContext(WordsContext);
+function Table({ wordsStore }) {
+  const words = wordsStore.words;
   const [edit, setEdit] = useState(null);
   const [error, setError] = useState(false);
+
+  useEffect(() => {
+    wordsStore.getWords();
+  }, []);
 
   const handleCancel = () => {
     setEdit(null);
@@ -23,17 +26,17 @@ export default function Table() {
     if (isValid) {
       setEdit(null);
       setError(false);
-      isChanged && editWords(row);
+      isChanged && wordsStore.editWords(row);
     } else {
       setError(true);
-      addError("Заполните все поля");
+      wordsStore.addError("Заполните все поля");
     }
   };
 
   const handleDelete = (id) => {
     let confirm = window.confirm("Are you sure?");
     if (confirm) {
-      deleteWords(id);
+      wordsStore.deleteWords(id);
     }
   };
 
@@ -63,7 +66,7 @@ export default function Table() {
           />
         ))}
         <tr>
-          {loading && (
+          {wordsStore.isLoading && (
             <td className={styles.ErrorData} rowSpan={5}>
               <svg className={styles.Spinner} viewBox="0 0 50 50">
                 <circle
@@ -81,3 +84,5 @@ export default function Table() {
     </table>
   );
 }
+
+export default inject(["wordsStore"])(observer(Table));

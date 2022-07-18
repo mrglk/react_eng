@@ -1,5 +1,4 @@
 import styles from "./Error.module.scss";
-// import { WordsContext } from "../../contexts/WordsContext";
 import { useState, useEffect } from "react";
 import * as cx from "classnames";
 import { inject, observer } from "mobx-react";

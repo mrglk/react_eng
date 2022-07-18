@@ -2,7 +2,6 @@ import styles from "./GamePage.module.scss";
 import Card from "../Card/Card";
 import { useCallback, useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-// import { WordsContext } from "../../contexts/WordsContext";
 import { inject, observer } from "mobx-react";
 
 function GamePage({ wordsStore }) {

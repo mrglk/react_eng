@@ -9,6 +9,7 @@ import { useState } from "react";
 import TableInput from "../TableInput/TableInput";
 
 function TableRow({
+  id,
   english,
   transcription,
   russian,
@@ -17,12 +18,21 @@ function TableRow({
   onSave,
   onCancel,
   onEdit,
+  onDelete,
 }) {
   const classTableData = cx(styles.TableData, {
     [styles.TableData_opened]: isEditable,
   });
 
-  const [state, setState] = useState({ english, transcription, russian, tags });
+  const [state, setState] = useState({
+    english,
+    transcription,
+    russian,
+    tags,
+    id,
+  });
+
+  const [changed, setChanged] = useState(false);
 
   const handleChange = (event, type) => {
     let value = event.target.value.trimStart().replace(/ +/g, " ");
@@ -30,6 +40,7 @@ function TableRow({
       ...state,
       [type]: value,
     });
+    setChanged(true);
   };
 
   if (!isEditable) {
@@ -42,7 +53,7 @@ function TableRow({
         <td className={classTableData} onClick={onEdit}>
           <TableButton alt="Edit" img={Edit} />
         </td>
-        <td className={classTableData}>
+        <td className={classTableData} onClick={() => onDelete(id)}>
           <TableButton alt="Delete" img={Delete} />
         </td>
       </tr>
@@ -74,7 +85,7 @@ function TableRow({
             onChange={(e) => handleChange(e, "tags")}
           />
         </td>
-        <td className={classTableData} onClick={() => onSave(state)}>
+        <td className={classTableData} onClick={() => onSave(state, changed)}>
           <TableButton alt="Save" img={Tick}></TableButton>
         </td>
         <td className={classTableData} onClick={onCancel}>

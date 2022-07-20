@@ -1,11 +1,15 @@
 import styles from "./WordsPage.module.scss";
 import Table from "../Table/Table";
+import WordAdd from "../WordAdd/WordAdd";
+import Error from "../Error/Error";
 
 function WordsPage() {
   return (
     <div className={styles.Container}>
       <div className={styles.Inner}>
-        <Table></Table>
+        <Error />
+        <WordAdd />
+        <Table />
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ function Header() {
     <div className={styles.Container}>
       <div className={styles.Inner}>
         <Link to="/">
-          <img className={styles.Logo} alt="Logo" src={Logo}></img>
+          <img className={styles.Logo} alt="Logo" src={Logo} />
         </Link>
         <div className={styles.LinksWrapper}>
           <CustomLink className={styles.Link} to="/">

@@ -46,7 +46,7 @@ function GamePage({ wordsStore }) {
 
   useEffect(() => {
     wordsStore.getWords();
-  }, []);
+  }, [wordsStore]);
 
   useEffect(() => {
     const index = searchParams.get("index");

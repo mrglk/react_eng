@@ -4,6 +4,8 @@ let url = "http://itgirlschool.justmakeit.ru/api/words";
 export default class WordsStore {
     words = [];
     isLoading = true;
+    isDeleting = false;
+    deleteId = null;
     errorMessage = null;
     constructor() {
         makeAutoObservable(this);
@@ -31,7 +33,7 @@ export default class WordsStore {
         runInAction(() => {
             this.isLoading = false;
             })
-         });
+          });
     }
 
     editWords = async (word) => {
@@ -52,6 +54,11 @@ export default class WordsStore {
         })
           .then(() => {
             this.getWords();
+
+            runInAction(() => {
+              this.deleteId = null;
+              this.isDeleting = false;
+              })
           })
           .catch((errors) => this.errorMessage = errors.message)
           .finally(() => {});
@@ -71,5 +78,12 @@ export default class WordsStore {
     
     addError = (message) => {
         this.errorMessage = message;
+      }
+
+    addDeleteModal = (id) => {
+      runInAction(() => {
+        this.deleteId = id;
+        this.isDeleting = true;
+        })
       }
     }

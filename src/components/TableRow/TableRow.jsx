@@ -34,11 +34,11 @@ function TableRow({
 
   const [changed, setChanged] = useState(false);
 
-  const handleChange = (event, type) => {
+  const handleChange = (event) => {
     let value = event.target.value.trimStart().replace(/ +/g, " ");
     setState({
       ...state,
-      [type]: value,
+      [event.target.name]: value,
     });
     setChanged(true);
   };
@@ -63,33 +63,37 @@ function TableRow({
       <tr className={styles.TableRow}>
         <td className={classTableData}>
           <TableInput
+            name="english"
             value={state.english}
-            onChange={(e) => handleChange(e, "english")}
+            onChange={(e) => handleChange(e)}
           />
         </td>
         <td className={classTableData}>
           <TableInput
+            name="transcription"
             value={state.transcription}
-            onChange={(e) => handleChange(e, "transcription")}
+            onChange={(e) => handleChange(e)}
           />
         </td>
         <td className={classTableData}>
           <TableInput
+            name="russian"
             value={state.russian}
-            onChange={(e) => handleChange(e, "russian")}
+            onChange={(e) => handleChange(e)}
           />
         </td>
         <td className={classTableData}>
           <TableInput
+            name="tags"
             value={state.tags}
-            onChange={(e) => handleChange(e, "tags")}
+            onChange={(e) => handleChange(e)}
           />
         </td>
         <td className={classTableData} onClick={() => onSave(state, changed)}>
-          <TableButton alt="Save" img={Tick}></TableButton>
+          <TableButton alt="Save" img={Tick} />
         </td>
         <td className={classTableData} onClick={onCancel}>
-          <TableButton alt="Cross" img={Cross}></TableButton>
+          <TableButton alt="Cross" img={Cross} />
         </td>
       </tr>
     );

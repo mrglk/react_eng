@@ -9,7 +9,6 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-// import { WordsContextProvider } from "./contexts/WordsContext";
 
 function App() {
   return (
@@ -20,7 +19,6 @@ function App() {
             <Route path="/" element={<WordsPage />} />
             <Route path="/game" element={<GamePage/>} />
             <Route path="*" element={<NoMatch />} />
-
           </Routes>
           <Footer />
         </div>

@@ -15,3 +15,11 @@
   border-radius: 3px;
   background: $accentColor;
 }
+
+@media screen and (max-width: $mobile) {
+  .TableRowHead {
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 2fr 1fr 1fr;
+    font-size: 9px;
+  }
+}

@@ -86,4 +86,11 @@ export default class WordsStore {
         this.isDeleting = true;
         })
       }
+
+      removeDeleteModal = () => {
+        runInAction(() => {
+          this.deleteId = null;
+          this.isDeleting = false;
+          })
+        }
     }

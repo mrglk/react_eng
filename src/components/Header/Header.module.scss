@@ -36,3 +36,9 @@
     transition: background-color 0.2s ease;
   }
 }
+
+@media screen and (max-width: $mobile) {
+  .LinksWrapper {
+    gap: 10px;
+  }
+}

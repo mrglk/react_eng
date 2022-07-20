@@ -9,7 +9,6 @@ function Table({ wordsStore }) {
   const words = wordsStore.words;
   const [edit, setEdit] = useState(null);
   const [error, setError] = useState(false);
-  // const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
     wordsStore.getWords();
@@ -36,11 +35,6 @@ function Table({ wordsStore }) {
   };
 
   const handleDelete = (id) => {
-    // let confirm = window.confirm("Are you sure?");
-    // setDeleting(true);
-    // if (confirm) {
-    //   wordsStore.deleteWords(id);
-    // }
     wordsStore.addDeleteModal(id);
   };
 
@@ -61,7 +55,6 @@ function Table({ wordsStore }) {
             russian={word.russian}
             tags={word.tags}
             isEditable={edit === i}
-            // isDeleting={deleting}
             onEdit={() => setEdit(i)}
             onCancel={handleCancel}
             onSave={handleSave}

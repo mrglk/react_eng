@@ -1,5 +1,6 @@
 import styles from "./WordAdd.module.scss";
 import TableInput from "../TableInput/TableInput";
+import Button from "../Button/Button";
 import { useState } from "react";
 import { inject, observer } from "mobx-react";
 
@@ -72,12 +73,9 @@ function WordAdd({ wordsStore }) {
             />
           </td>
           <td className={styles.TableData}>
-            <button
-              disabled={disabledButton}
-              className={styles.Button}
-              onClick={() => handleAdd(state)}>
+            <Button disabled={disabledButton} onClick={() => handleAdd(state)}>
               Add word
-            </button>
+            </Button>
           </td>
         </tr>
       </tbody>

@@ -18,7 +18,7 @@
   justify-content: space-between;
   width: 17rem;
   height: 22rem;
-  margin: 25px 40px;
+  margin: 1em 2em;
   border: 1px solid white;
   border-radius: 70px;
   background-color: white;
@@ -67,4 +67,21 @@
 .Russian {
   font-size: 1rem;
   padding: 10px;
+}
+
+@media screen and (max-width: $mobile) {
+  .Card {
+    width: 14rem;
+    height: 22rem;
+    margin: 0.5em 1em;
+  }
+}
+
+@media screen and (max-width: $smallMobile) {
+  .Card {
+    width: 10rem;
+    height: 22rem;
+    margin: 0.5em 0.6em;
+    border-radius: 50px;
+  }
 }

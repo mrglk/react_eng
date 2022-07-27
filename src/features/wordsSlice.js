@@ -1,6 +1,13 @@
-import { createSlice, createAsyncThunk, createEntityAdapter } from '@reduxjs/toolkit';
-import { initialState } from "../stores/initialState"
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 let url = "http://itgirlschool.justmakeit.ru/api/words";
+
+const initialState = {
+    words: [],
+    isLoading: true,
+    isDeleting: false,
+    deleteId: null,
+    errorMessage: null
+}
 
 export const fetchWords = createAsyncThunk('words/fetchWords', async (_, {rejectWithValue, dispatch}) => {
     try {
@@ -60,11 +67,9 @@ export const editWord = createAsyncThunk('words/editWord', async (word, {rejectW
         }
 })
 
-const wordsAdapter = createEntityAdapter();
-
 const wordsSlice = createSlice({
     name: 'words',
-    initialState: wordsAdapter.getInitialState(initialState),
+    initialState: initialState,
     reducers: {
         removeWord(state, action) {
             state.words = state.words.filter(word => word.id !== action.payload.id)

@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk, createEntityAdapter } from '@reduxjs/toolkit';
-// import axios from 'axios';
 import { initialState } from "../stores/initialState"
 let url = "http://itgirlschool.justmakeit.ru/api/words";
 
@@ -61,11 +60,6 @@ export const editWord = createAsyncThunk('words/editWord', async (word, {rejectW
         }
 })
 
-// export const addError = (state, action) => {
-//             state.errorMessage = action.payload;
-//         }
-    
-
 const wordsAdapter = createEntityAdapter();
 
 const wordsSlice = createSlice({
@@ -85,14 +79,12 @@ const wordsSlice = createSlice({
         },
         addError(state, action) {
             state.errorMessage = action.payload;
-            console.log(state.errorMessage )
         },
         addDeleteModal(state, action) {
             state.deleteId = action.payload;
-            console.log(state.deleteId)
             state.isDeleting = true;
         },
-        removeDeleteModal(state, action) {
+        removeDeleteModal(state) {
             state.deleteId = null;
             state.isDeleting = false;
         },

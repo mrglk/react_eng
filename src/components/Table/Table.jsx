@@ -15,13 +15,12 @@ export default function Table() {
   const [edit, setEdit] = useState(null);
   const [error, setError] = useState(false);
   const dispatch = useDispatch();
+  const words = useSelector(({ words }) => words.words);
+  const isLoading = useSelector(({ words }) => words.isLoading);
 
   useEffect(() => {
     dispatch(fetchWords());
   }, [dispatch]);
-
-  const words = useSelector(({ words }) => words.words);
-  const isLoading = useSelector(({ words }) => words.isLoading);
 
   const handleCancel = () => {
     setEdit(null);
@@ -36,19 +35,15 @@ export default function Table() {
     if (isValid) {
       setEdit(null);
       setError(false);
-      // isChanged && wordsStore.editWords(row);
       isChanged && dispatch(editWord(row));
     } else {
       setError(true);
-      // wordsStore.addError("Заполните все поля")
       dispatch(addError("Заполните все поля"));
     }
   };
 
   const handleDelete = (id) => {
-    // wordsStore.addDeleteModal(id);
     dispatch(addDeleteModal(id));
-    // dispatch(deleteWord(id));
   };
 
   const validate = (input) => {
@@ -81,5 +76,3 @@ export default function Table() {
     </table>
   );
 }
-
-// export default inject(["wordsStore"])(observer(Table));

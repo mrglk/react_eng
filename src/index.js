@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import "./styles/common.scss";
 import "./styles/normalize.css";
 import { Provider } from 'react-redux';
-import store from './stores/WordsStoreRedux';
+import store from './stores/wordsStore';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -5,16 +5,12 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "./styles/common.scss";
 import "./styles/normalize.css";
-import WordsStore from "./stores/WordsStore";
-import { Provider } from "mobx-react";
-
-const store = {
-  wordsStore: new WordsStore(),
-};
+import { Provider } from 'react-redux';
+import store from './stores/wordsStore';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Provider {...store}>
+  <Provider store={store}>
     <React.StrictMode>
       <App />
     </React.StrictMode>

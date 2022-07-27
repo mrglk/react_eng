@@ -2,14 +2,20 @@ import styles from "./GamePage.module.scss";
 import Card from "../Card/Card";
 import { useCallback, useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import { inject, observer } from "mobx-react";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchWords } from "../../features/wordsSlice";
 
-function GamePage({ wordsStore }) {
-  const words = wordsStore.words;
+export default function GamePage() {
+  const words = useSelector(({ words }) => words.words);
+  const dispatch = useDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
   const [index, setIndex] = useState(0);
   const [change, setChange] = useState(false);
   const [learnedWords, setLearnedWords] = useState([]);
+
+  useEffect(() => {
+    dispatch(fetchWords());
+  }, [dispatch]);
 
   const handleClick = (id) => {
     if (learnedWords.length === 0 || !learnedWords.includes(Number(id))) {
@@ -43,10 +49,6 @@ function GamePage({ wordsStore }) {
 
     setSearchParams({ index: newIndex });
   };
-
-  useEffect(() => {
-    wordsStore.getWords();
-  }, [wordsStore]);
 
   useEffect(() => {
     const index = searchParams.get("index");
@@ -89,5 +91,3 @@ function GamePage({ wordsStore }) {
 
   return <div className={styles.Wrapper_error}>Нет данных :(</div>;
 }
-
-export default inject(["wordsStore"])(observer(GamePage));

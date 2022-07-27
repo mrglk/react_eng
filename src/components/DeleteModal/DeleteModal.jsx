@@ -1,11 +1,16 @@
 import styles from "./DeleteModal.module.scss";
 import * as cx from "classnames";
-import { inject, observer } from "mobx-react";
 import Button from "../Button/Button";
+import { useSelector, useDispatch } from "react-redux";
+import { deleteWord, removeDeleteModal } from "../../features/wordsSlice";
 
-function DeleteModal({ wordsStore }) {
+export default function DeleteModal() {
+  const dispatch = useDispatch();
+  const isDeleting = useSelector(({ words }) => words.isDeleting);
+  const deleteId = useSelector(({ words }) => words.deleteId);
+
   const classDelete = cx(styles.Delete, {
-    [styles.DeleteShow]: wordsStore.isDeleting,
+    [styles.DeleteShow]: isDeleting,
   });
 
   return (
@@ -14,7 +19,7 @@ function DeleteModal({ wordsStore }) {
         <button
           className={styles.Close}
           onClick={() => {
-            wordsStore.removeDeleteModal();
+            dispatch(removeDeleteModal());
           }}>
           &times;
         </button>
@@ -24,13 +29,13 @@ function DeleteModal({ wordsStore }) {
           <div className={styles.Buttons}>
             <Button
               onClick={() => {
-                wordsStore.removeDeleteModal();
+                dispatch(removeDeleteModal());
               }}>
               Cancel
             </Button>
             <Button
               onClick={() => {
-                wordsStore.deleteWords(wordsStore.deleteId);
+                dispatch(deleteWord(deleteId));
               }}>
               Yes
             </Button>
@@ -40,5 +45,3 @@ function DeleteModal({ wordsStore }) {
     </div>
   );
 }
-
-export default inject(["wordsStore"])(observer(DeleteModal));

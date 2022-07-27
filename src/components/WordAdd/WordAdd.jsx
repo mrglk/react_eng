@@ -2,10 +2,11 @@ import styles from "./WordAdd.module.scss";
 import TableInput from "../TableInput/TableInput";
 import Button from "../Button/Button";
 import { useState } from "react";
-import { inject, observer } from "mobx-react";
+import { addNewWord } from "../../features/wordsSlice";
+import { useDispatch } from "react-redux";
 
-function WordAdd({ wordsStore }) {
-  const addWord = wordsStore.addWord;
+export default function WordAdd({ wordsStore }) {
+  const dispatch = useDispatch();
   const [disabledButton, setDisabledButton] = useState(true);
 
   const initialState = {
@@ -35,7 +36,7 @@ function WordAdd({ wordsStore }) {
   };
 
   const handleAdd = (word) => {
-    addWord(state);
+    dispatch(addNewWord(state));
     setState(initialState);
     setDisabledButton(true);
   };
@@ -82,5 +83,3 @@ function WordAdd({ wordsStore }) {
     </table>
   );
 }
-
-export default inject(["wordsStore"])(observer(WordAdd));

@@ -1,10 +1,10 @@
 import styles from "./Error.module.scss";
 import { useState, useEffect } from "react";
 import * as cx from "classnames";
-import { inject, observer } from "mobx-react";
+import { useSelector } from "react-redux";
 
-function Error({ wordsStore }) {
-  const errorMessage = wordsStore.errorMessage;
+export default function Error() {
+  const errorMessage = useSelector(({ words }) => words.errorMessage);
   const [shown, setShown] = useState(true);
   const classError = cx(styles.Error, {
     [styles.ErrorShow]: errorMessage && shown,
@@ -26,5 +26,3 @@ function Error({ wordsStore }) {
     </div>
   );
 }
-
-export default inject(["wordsStore"])(observer(Error));

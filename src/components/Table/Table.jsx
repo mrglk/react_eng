@@ -3,16 +3,24 @@ import TableRow from "../TableRow/TableRow";
 import TableRowHead from "../TableRowHead/TableRowHead";
 import Loader from "../Loader/Loader";
 import { useState, useEffect } from "react";
-import { inject, observer } from "mobx-react";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  fetchWords,
+  addError,
+  editWord,
+  addDeleteModal,
+} from "../../features/wordsSlice";
 
-function Table({ wordsStore }) {
-  const words = wordsStore.words;
+export default function Table() {
   const [edit, setEdit] = useState(null);
   const [error, setError] = useState(false);
+  const dispatch = useDispatch();
+  const words = useSelector(({ words }) => words.words);
+  const isLoading = useSelector(({ words }) => words.isLoading);
 
   useEffect(() => {
-    wordsStore.getWords();
-  }, [wordsStore]);
+    dispatch(fetchWords());
+  }, [dispatch]);
 
   const handleCancel = () => {
     setEdit(null);
@@ -27,15 +35,15 @@ function Table({ wordsStore }) {
     if (isValid) {
       setEdit(null);
       setError(false);
-      isChanged && wordsStore.editWords(row);
+      isChanged && dispatch(editWord(row));
     } else {
       setError(true);
-      wordsStore.addError("Заполните все поля");
+      dispatch(addError("Заполните все поля"));
     }
   };
 
   const handleDelete = (id) => {
-    wordsStore.addDeleteModal(id);
+    dispatch(addDeleteModal(id));
   };
 
   const validate = (input) => {
@@ -63,10 +71,8 @@ function Table({ wordsStore }) {
             isError={error}
           />
         ))}
-        <tr>{wordsStore.isLoading && <Loader />}</tr>
+        <tr>{isLoading && <Loader />}</tr>
       </tbody>
     </table>
   );
 }
-
-export default inject(["wordsStore"])(observer(Table));

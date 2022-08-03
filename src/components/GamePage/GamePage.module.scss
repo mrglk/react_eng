@@ -45,3 +45,9 @@
   justify-items: center;
   margin-top: 10px;
 }
+
+@media screen and (max-width: $mobile) {
+  .Wrapper {
+    margin-top: 20px;
+  }
+}

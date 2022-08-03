@@ -1,3 +1,5 @@
+@import "../../styles/vars.scss";
+
 .Container {
   width: 100%;
   margin-top: 50px;
@@ -10,4 +12,10 @@
   align-items: center;
   width: 95%;
   margin: auto;
+}
+
+@media screen and (max-width: $mobile) {
+  .Container {
+    margin-top: 20px;
+  }
 }

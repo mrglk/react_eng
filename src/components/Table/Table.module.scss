@@ -14,3 +14,9 @@
 .ErrorData {
   height: 60px;
 }
+
+@media screen and (max-width: $tablet) {
+  .Table {
+    width: 90vw;
+  }
+}

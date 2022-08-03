@@ -38,7 +38,15 @@
 }
 
 @media screen and (max-width: $mobile) {
+  .Inner {
+    justify-content: center;
+  }
+
   .LinksWrapper {
     gap: 10px;
+  }
+
+  .Logo {
+    display: none;
   }
 }

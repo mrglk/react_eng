@@ -6,9 +6,10 @@
 }
 
 .TableRow {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1em;
+  display: grid;
+  gap: 0.5em;
+  justify-content: flex-start;
+  grid-template-columns: repeat(5, 1fr);
 }
 
 .TableData {
@@ -18,11 +19,31 @@
   height: 30px;
   border: 2px solid $bgColor;
   border-radius: 3px;
+  justify-content: flex-start;
+}
+
+@media screen and (max-width: $tablet) {
+  .TableRow {
+    gap: 0;
+  }
 }
 
 @media screen and (max-width: $mobile) {
+  .Container {
+    justify-content: center;
+  }
+
   .TableRow {
     font-size: 9px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .TableData:last-child {
+    justify-self: center;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
   }
 }
 

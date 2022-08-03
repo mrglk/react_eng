@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/react_eng/static/css/main.c511cf31.css",
+    "main.css": "/react_eng/static/css/main.20e47f1d.css",
     "main.js": "/react_eng/static/js/main.543b4a23.js",
     "static/media/Raleway-ExtraBoldItalic.woff": "/react_eng/static/media/Raleway-ExtraBoldItalic.635cc5432d56146d3043.woff",
     "static/media/Raleway-BoldItalic.woff": "/react_eng/static/media/Raleway-BoldItalic.3111e667b39d1c23fc06.woff",
@@ -44,11 +44,11 @@
     "static/media/edit.svg": "/react_eng/static/media/edit.32e69fb0c3ebf698d4d93bef1b3464c7.svg",
     "static/media/tick.svg": "/react_eng/static/media/tick.caaf47bae96092d524a7a9038eef57f6.svg",
     "static/media/logo.svg": "/react_eng/static/media/logo.02104d11a1562535fe671d1cc367855e.svg",
-    "main.c511cf31.css.map": "/react_eng/static/css/main.c511cf31.css.map",
+    "main.20e47f1d.css.map": "/react_eng/static/css/main.20e47f1d.css.map",
     "main.543b4a23.js.map": "/react_eng/static/js/main.543b4a23.js.map"
   },
   "entrypoints": [
-    "static/css/main.c511cf31.css",
+    "static/css/main.20e47f1d.css",
     "static/js/main.543b4a23.js"
   ]
 }

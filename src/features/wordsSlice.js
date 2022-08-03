@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-let url = "http://itgirlschool.justmakeit.ru/api/words";
+// let url = "http://itgirlschool.justmakeit.ru/api/words";
+let url = "https://cors-everywhere.herokuapp.com/http://itgirlschool.justmakeit.ru/api/words";
 
 const initialState = {
     words: [],

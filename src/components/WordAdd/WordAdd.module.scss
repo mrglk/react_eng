@@ -26,6 +26,10 @@
   .TableRow {
     gap: 0;
   }
+
+  .Container {
+    width: 90vw;
+  }
 }
 
 @media screen and (max-width: $mobile) {

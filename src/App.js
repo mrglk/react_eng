@@ -5,7 +5,7 @@ import WordsPage from "./components/WordsPage/WordsPage";
 import GamePage from "./components/GamePage/GamePage";
 import NoMatch from "./components/NoMacth/NoMatch";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Routes,
   Route,
 } from "react-router-dom";

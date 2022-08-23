@@ -2,14 +2,12 @@
 
 .Container {
   display: flex;
+  justify-content: center;
   width: 80vw;
 }
 
 .TableRow {
-  display: grid;
-  gap: 0.5em;
-  justify-content: flex-start;
-  grid-template-columns: repeat(5, 1fr);
+  display: flex;
 }
 
 .TableData {
@@ -40,14 +38,6 @@
   .TableRow {
     font-size: 9px;
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .TableData:last-child {
-    justify-self: center;
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-start: 3;
-    grid-row-end: 4;
   }
 }
 

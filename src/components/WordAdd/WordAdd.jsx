@@ -1,11 +1,11 @@
 import styles from "./WordAdd.module.scss";
-import TableInput from "../TableInput/TableInput";
+import WordAddInput from "../WordAddInput/WordAddInput";
 import Button from "../Button/Button";
 import { useState } from "react";
 import { addNewWord } from "../../features/wordsSlice";
 import { useDispatch } from "react-redux";
 
-export default function WordAdd({ wordsStore }) {
+export default function WordAdd() {
   const dispatch = useDispatch();
   const [disabledButton, setDisabledButton] = useState(true);
 
@@ -46,28 +46,28 @@ export default function WordAdd({ wordsStore }) {
       <tbody>
         <tr className={styles.TableRow}>
           <td className={styles.TableData}>
-            <TableInput
+            <WordAddInput
               value={state.english}
               onChange={(e) => handleChange(e, "english")}
               placeholder="english"
             />
           </td>
           <td className={styles.TableData}>
-            <TableInput
+            <WordAddInput
               value={state.transcription}
               onChange={(e) => handleChange(e, "transcription")}
               placeholder="transcription"
             />
           </td>
           <td className={styles.TableData}>
-            <TableInput
+            <WordAddInput
               value={state.russian}
               onChange={(e) => handleChange(e, "russian")}
               placeholder="russian"
             />
           </td>
           <td className={styles.TableData}>
-            <TableInput
+            <WordAddInput
               value={state.tags}
               onChange={(e) => handleChange(e, "tags")}
               placeholder="tags"
@@ -75,7 +75,7 @@ export default function WordAdd({ wordsStore }) {
           </td>
           <td className={styles.TableData}>
             <Button disabled={disabledButton} onClick={() => handleAdd(state)}>
-              Add word
+              Add
             </Button>
           </td>
         </tr>

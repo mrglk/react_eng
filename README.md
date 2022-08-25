@@ -13,13 +13,13 @@ https://mrglk.github.io/react_eng/
 
 ### Используемые технологии:
 
-- HTML5/СSS3
-- SAAS
-- CSS Modules
+- React (Hooks, React Router)
 - JavaScript
-- React Hooks, React Router
 - Redux
 - MobX (в отдельной ветка)
+- HTML5/СSS3
+- SASS
+- CSS Modules
 
 ### Запуск проекта
 
